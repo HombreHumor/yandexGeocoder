@@ -8,7 +8,7 @@ require_once($PATH_TO_FILE . '/yaGeocoderHelper.php');
 ```
 Or use Composer by setting the composer.json file to autoload this class.
 
-## USING
+## USAGE
 This class allows you to get a complete list of geodata using the coordinates or address as input.
 First, initialize the object:
 ```php
