@@ -26,7 +26,7 @@ After that you can use any of the following methods to get the data you need:
 
 ### getCoords()
 ```php
-$someObj->getCoords(); // Getting the coordinates (width, longitude) 
+$someObj->getCoords(); // Getting the coordinates (latitude, longitude) 
 ```
 
 ### getFullAddress()
