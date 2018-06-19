@@ -16,7 +16,7 @@ $someObj = new yanGeoHelp;
 ```
 Then pass the input data to the object. It can be either coordinates (latitude, longitude):
 ```php
-$someObj->setLoc(55.711157, 37.713985); // Send some coordinates of the point in Moscow
+$someObj->setLoc('55.711157, 37.713985'); // Send some coordinates of the point in Moscow
 ```
 Either some address passed as a string:
 ```php

@@ -19,12 +19,12 @@ class yanGeoHelp {
 
   public function setLoc($param) {
     $this->inLoc = $param;
-    $this->geocodeAddress;
+    $this->geocodeCoords();
   }
 
   public function setAddress($param) {
     $this->inAddress = $param;
-    $this->geocodeCoords;
+    $this->geocodeAddress();
   }
 
   public function setKey($param) {
@@ -101,7 +101,7 @@ class yanGeoHelp {
       'geocode' => $coord,
       'format' => 'json',
       'results' => 1,
-      'key' => $checkedKey,
+      'key' => '$checkedKey',
     );
     $response = json_decode(file_get_contents('http://geocode-maps.yandex.ru/1.x/?' . http_build_query($params, '', '&')));
     if ($response->response->GeoObjectCollection->metaDataProperty->GeocoderResponseMetaData->found > 0) {
@@ -113,7 +113,7 @@ class yanGeoHelp {
         $this->city = $response->response->GeoObjectCollection->featureMember[0]->GeoObject->metaDataProperty->GeocoderMetaData->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->LocalityName;
         $this->street = $response->response->GeoObjectCollection->featureMember[0]->GeoObject->metaDataProperty->GeocoderMetaData->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->Thoroughfare->ThoroughfareName;
         $this->house = $response->response->GeoObjectCollection->featureMember[0]->GeoObject->metaDataProperty->GeocoderMetaData->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->Thoroughfare->Premise->PremiseNumber;
-        $nonFCoo = explode(',', $response->response->GeoObjectCollection->featureMember[0]->GeoObject->Point->pos);
+        $nonFCoo = explode(' ', $response->response->GeoObjectCollection->featureMember[0]->GeoObject->Point->pos);
         $this->coord = $nonFCoo[1] . ', ' . $nonFCoo[0];
     };
   }
@@ -140,7 +140,7 @@ class yanGeoHelp {
         $this->city = $response->response->GeoObjectCollection->featureMember[0]->GeoObject->metaDataProperty->GeocoderMetaData->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->LocalityName;
         $this->street = $response->response->GeoObjectCollection->featureMember[0]->GeoObject->metaDataProperty->GeocoderMetaData->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->Thoroughfare->ThoroughfareName;
         $this->house = $response->response->GeoObjectCollection->featureMember[0]->GeoObject->metaDataProperty->GeocoderMetaData->AddressDetails->Country->AdministrativeArea->SubAdministrativeArea->Locality->Thoroughfare->Premise->PremiseNumber;
-        $nonFCoo = explode(',', $response->response->GeoObjectCollection->featureMember[0]->GeoObject->Point->pos);
+        $nonFCoo = explode(' ', $response->response->GeoObjectCollection->featureMember[0]->GeoObject->Point->pos);
         $this->coord = $nonFCoo[1] . ', ' . $nonFCoo[0];
     };
   }
