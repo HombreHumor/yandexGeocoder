@@ -12,7 +12,7 @@ Or use Composer by setting the composer.json file to autoload this class.
 This class allows you to get a complete list of geodata using the coordinates or address as input.
 First, initialize the object:
 ```php
-$someObj = new yaGeoHelp;
+$someObj = new yanGeoHelp;
 ```
 Then pass the input data to the object. It can be either coordinates (latitude, longitude):
 ```php
